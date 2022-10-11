@@ -30,6 +30,10 @@ end
 
 group :development do
   gem 'guard'
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+
+  gem 'rack-livereload'
 
   gem 'rubocop'
   gem 'rubocop-performance'

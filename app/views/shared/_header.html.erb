@@ -1,0 +1,14 @@
+<header>
+  <nav class="h-16 flex items-center p-4 justify-between absolute top-0 w-full">
+    <%= link_to "GoAhead", root_path, class: "text-lg text-gray-900 font-bold" %>
+
+    <div class="flex space-x-4">    
+      <% if current_user %>
+        
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, class: "text-black duration-200 hover:text-gray-700" %>
+        <%= link_to "Log in", new_user_session_path, class: "text-black duration-200 hover:text-gray-700" %>
+      <% end %>
+    </div>
+  </nav>
+</header>
