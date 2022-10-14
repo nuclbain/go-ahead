@@ -17,9 +17,7 @@ gem 'jbuilder'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'redis', '~> 4.0'
-gem 'stimulus-rails'
 gem 'tailwindcss-rails'
-gem 'turbo-rails'
 
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -33,12 +31,20 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
 
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+
   gem 'rack-livereload'
 
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+
+  gem 'rufo'
+
+  gem 'solargraph'
 
   gem 'web-console'
 end

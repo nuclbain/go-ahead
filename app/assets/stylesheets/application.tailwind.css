@@ -15,4 +15,56 @@
     background: #000;
     border-radius: 3px;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-5xl mb-6;
+  }
+
+  h2 {
+    @apply text-4xl mb-4;
+  }
+
+  h3 {
+    @apply text-3xl mb-2;
+  }
+
+  h4 {
+    @apply text-2xl mb-2;
+  }
+
+  h5 {
+    @apply text-xl mb-2;
+  }
+
+  h6 {
+    @apply text-lg mb-2;
+  }
+
+  a, .form-control, .button {
+    @apply duration-200;
+  }
+
+  a {
+    @apply text-black hover:underline hover:text-emerald-700
+  }
+
+  label {
+    @apply font-medium text-xs;
+  }
+
+  .field {
+    @apply mb-4;
+  }
+
+  .form-control {
+    @apply border border-black rounded-lg px-4 py-2 w-full focus:ring-0 focus:border-emerald-700;
+  }
+
+  .button {
+    @apply border cursor-pointer font-medium border-black rounded-lg px-4 py-2 w-full hover:border-emerald-700 hover:text-emerald-700;
+  }
 }
