@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
+# This class creates a table called users with the following columns: email, encrypted_password,
+# reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count,
+# current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, confirmation_token,
+# confirmed_at, confirmation_sent_at, unconfirmed_email, failed_attempts, unlock_token, locked_at, and
+# timestamps.
 class DeviseCreateUsers < ActiveRecord::Migration[7.0]
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def change
     create_table :users do |t|
       ## Database authenticatable
@@ -40,4 +47,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
   end
+
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 end
