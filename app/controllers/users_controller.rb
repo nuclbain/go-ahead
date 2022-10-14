@@ -3,26 +3,33 @@
 # This class is a controller for the user model.
 class UsersController < ApplicationController
   def index
-    @users = user.scoped
+    @users = User.scoped
   end
 
   def show
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def create
-    @user = user.new(params[:user])
+    @user = User.new(params[:user])
   end
 
   def update
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def destroy
-    user = user.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  private
+
+  def user_params
+    params.require(:user)
+          .permit(:email, :password, :password_confirmation, :first_name, :last_name, :invite_code)
   end
 end
