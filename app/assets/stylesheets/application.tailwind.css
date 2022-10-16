@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @layer components {
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+
   *::-webkit-scrollbar {
     width: 0.5rem;
   }
@@ -49,11 +55,15 @@
   }
 
   a {
-    @apply text-black hover:underline hover:text-emerald-700
+    @apply hover:text-red-700
   }
 
   label {
     @apply font-medium text-xs;
+  }
+
+  header, footer, section {
+    @apply p-4 md:p-8 lg:p-16;
   }
 
   .field {
@@ -61,10 +71,22 @@
   }
 
   .form-control {
-    @apply border border-black rounded-lg px-4 py-2 w-full focus:ring-0 focus:border-emerald-700;
+    @apply border border-white bg-transparent text-white rounded-lg px-4 py-2 w-full focus:ring-0 focus:border-red-700;
   }
 
   .button {
-    @apply border cursor-pointer font-medium border-black rounded-lg px-4 py-2 w-full hover:border-emerald-700 hover:text-emerald-700;
+    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-white rounded-lg px-4 py-2 hover:border-red-700 hover:text-red-700;
+  }
+
+  .button-inverted {
+    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-white rounded-lg px-4 py-2 hover:border-red-700 hover:text-red-700 text-white;
+  }
+
+  .button-fill {
+    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-black rounded-lg px-4 py-2 hover:border-red-700 bg-black text-white hover:bg-red-700;
+  }
+
+  .button-fill-inverted {
+    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-white rounded-lg px-4 py-2 hover:border-red-700 bg-white text-black hover:bg-red-700 hover:text-white;
   }
 }
