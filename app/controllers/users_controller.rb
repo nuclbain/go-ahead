@@ -16,6 +16,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    @user.update(user_params)
+
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      flash[:error] = 'There was an error updating your profile.'
+
+      render :edit
+    end
   end
 
   def edit
@@ -30,6 +39,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit(:email, :password, :password_confirmation, :first_name, :last_name, :invite_code)
+          .permit(
+            :email, :password, :password_confirmation, :first_name, :last_name, :invite_code,
+            :birth_date
+          )
   end
 end
