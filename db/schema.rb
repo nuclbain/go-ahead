@@ -10,15 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_14_102438) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_20_151640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "boards", force: :cascade do |t|
+    t.string "title"
+    t.text "desctiption"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "invites", force: :cascade do |t|
     t.string "code"
     t.datetime "expire_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "name"
+    t.text "body"
+    t.bigint "board_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_notes_on_board_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,4 +68,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_102438) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "notes", "boards"
 end
