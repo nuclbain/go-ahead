@@ -1,0 +1,17 @@
+<div id="<%= dom_id board %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= board.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Desctiption:</strong>
+    <%= board.desctiption %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this board", board_path(board), class: "button" %>
+    <%= link_to 'Edit this board', edit_board_path(board), class: "button" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
