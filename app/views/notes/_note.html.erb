@@ -1,17 +1,26 @@
-<div id="<%= dom_id note %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= note.name %>
-  </p>
+<% if action_name == "show" && controller_name == "boards" %>
+  <a 
+    href="<%= board_note_path(@board, note) %>"
+    id="<%= dom_id note %>"
+    class="p-4 duration-200 border-2 rounded-2xl hover:border-orange-900 group hover:shadow-xl hover:shadow-orange-900/30"
+  >
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= note.body %>
-  </p>
+    <h6 class="text-lg font-medium group-hover:text-orange-900 duration-200"><%= note.name %></h6>
+    <p class="text-sm group-hover:text-orange-100/60 duration-200"><%= note.body %></p>
+  </a>  
+<% else %>
+  <div>
+    <h6 class="text-lg"><%= note.name %></h6>
+    <p class="text-sm"><%= note.body %></p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this note", note, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this note', edit_note_path(note), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+    <div class="mt-8 space-x-2">
+      <%= link_to 'Edit this note', edit_board_note_path(@note.board, @note), class: "button text-xs rounded-full" %>
+
+      <div class="inline-block">
+        <%= button_to 'Destroy this note', board_note_path(@note.board, @note), method: :delete, class: "button text-xs rounded-full" %>
+      </div>
+
+      <%= link_to 'Back to notes', board_path(@note.board), class: "button text-xs rounded-full" %>
+    </div>
+  </div>
+<% end %>

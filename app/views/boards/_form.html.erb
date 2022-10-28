@@ -1,32 +1,30 @@
-<section class="mt-16 min-h-screen">
-  <%= form_with(model: board) do |form| %>
-    <% if board.errors.any? %>
-      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-        <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
-  
-        <ul>
-          <% board.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  
-    <h2>Add a new board</h2>
+<%= form_with(model: board) do |form| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
 
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title, class: "form-control" %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :desctiption %>
-      <%= form.text_area :desctiption, rows: 4, class: "form-control" %>
-    </div>
-  
-    <div class="inline">
-      <%= form.submit class: "button" %>
+      <ul>
+        <% board.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
-</section>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, rows: 4, class: "form-control" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "button" %>
+  </div>
+<% end %>
 

@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "boards/show", type: :view do
+RSpec.describe 'boards/show', type: :view do
   before(:each) do
     assign(:board, Board.create!(
-      title: "Title",
-      desctiption: "MyText"
-    ))
+                     title: 'Title',
+                     description: 'MyText'
+                   ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Title/)
     expect(rendered).to match(/MyText/)

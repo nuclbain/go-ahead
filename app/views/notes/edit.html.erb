@@ -1,8 +1,10 @@
-<div class="mx-auto md:w-2/3 w-full">
+<section class="mt-16 min-h-screen">
   <h1 class="font-bold text-4xl">Editing note</h1>
 
   <%= render "form", note: @note %>
 
-  <%= link_to "Show this note", @note, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to notes", notes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
+  <div class="mt-8 space-x-2">
+    <%= link_to "Show this note", board_note_path(@board, @note), class: "button rounded-full text-xs" %>
+    <%= link_to "Back to notes", board_path(@board), class: "button rounded-full text-xs" %>
+  </div>
+</section>

@@ -32,7 +32,6 @@ group :development do
   gem 'guard-rspec'
 
   gem 'pry'
-  gem 'pry-byebug'
   gem 'pry-rails'
 
   gem 'rack-livereload'

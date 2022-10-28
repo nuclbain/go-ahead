@@ -54,8 +54,8 @@
     @apply duration-200;
   }
 
-  a {
-    @apply hover:text-red-700
+  .link {
+    @apply hover:text-red-50
   }
 
   label {
@@ -71,10 +71,10 @@
   }
 
   .form-control {
-    @apply border-white bg-transparent text-white px-4 py-2 w-full focus:ring-0 focus:border-red-700;
+    @apply border-gray-500 bg-transparent text-gray-500 px-4 py-2 w-full focus:ring-0 focus:border-red-50;
   }
 
   .button {
-    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-white px-4 py-2 hover:border-red-700 hover:text-red-700;
+    @apply inline-block border cursor-pointer text-xs md:text-base font-medium border-gray-500 text-gray-500 px-4 py-2 hover:border-red-50 hover:text-red-50 rounded-full;
   }
 }

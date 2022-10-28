@@ -1,11 +1,14 @@
-<section class="w-full bg-black min-h-screen text-white mt-16">
+<section class="w-full bg-black min-h-screen mt-16 text-white">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl"><%= current_user.first_name %> Boards</h1>
-    <%= link_to 'New board', new_board_path, class: "button" %>
+  <div class="flex justify-between items-center mb-8 mb:md-16">
+    <h1 class="font-normal m-0 md:text-8xl lg:text-9xl"><%= current_user.first_name %> Boards</h1>
+    <%= link_to new_board_path, class: "flex space-x-2 items-center border-2 border-gray-400 text-gray-400 font-bold rounded-full text-xs md:text-lg px-4 py-2 md:px-5 md:py-4 duration-100 hover:text-gray-100 hover:border-gray-100" do %>
+      <i class="ph-plus-bold"></i>
+      <span>Add a new board</span>
+    <% end %>
   </div>
 
   <div id="boards" class="min-w-full">
